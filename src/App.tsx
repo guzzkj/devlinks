@@ -5,6 +5,7 @@ import LinkButton from './components/LinkButton'
 import SocialLinks from './components/SocialLinks'
 import Footer from './components/Footer'
 import { profile, links, socials } from './data/links'
+import type { Theme } from './types'
 import avatarDark from './assets/avatars/avatar-dark.jpg'
 import avatarLight from './assets/avatars/avatar-light.jpg'
 import './App.css'
@@ -12,14 +13,14 @@ import './App.css'
 const THEME_KEY = 'devlinks-theme'
 
 // Lê o tema salvo; se não houver (ou for inválido), usa o escuro
-function getInitialTheme() {
+function getInitialTheme(): Theme {
   const saved = localStorage.getItem(THEME_KEY)
   return saved === 'light' ? 'light' : 'dark'
 }
 
 function App() {
   // useState com função: o React lê o localStorage só na primeira renderização
-  const [theme, setTheme] = useState(getInitialTheme)
+  const [theme, setTheme] = useState<Theme>(getInitialTheme)
 
   // Sempre que o tema muda: aplica no <html> (troca as cores) e salva
   useEffect(() => {

@@ -1,3 +1,4 @@
+import type { Theme } from '../types'
 import './ThemeToggle.css'
 
 // Ícones simples (sol e lua) desenhados em SVG
@@ -19,7 +20,12 @@ function MoonIcon() {
 }
 
 // Botão de alternar tema. theme = "light" ou "dark"; onToggle é chamado no clique.
-function ThemeToggle({ theme, onToggle }) {
+type ThemeToggleProps = {
+  theme: Theme
+  onToggle: () => void
+}
+
+function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
   const isLight = theme === 'light'
   return (
     <button

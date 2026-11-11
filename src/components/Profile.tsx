@@ -1,7 +1,12 @@
 import './Profile.css'
 
 // Mostra a foto e o @usuário. Recebe os dados por Props.
-function Profile({ avatar, username }) {
+type ProfileProps = {
+  avatar: string
+  username: string
+}
+
+function Profile({ avatar, username }: ProfileProps) {
   return (
     <header className="profile">
       <div className="profile__ring">

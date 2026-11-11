@@ -1,8 +1,13 @@
 import Icon from './Icons'
+import type { SocialItem } from '../types'
 import './SocialLinks.css'
 
 // Lista de ícones das redes sociais. Recebe o array "socials" por Props.
-function SocialLinks({ socials }) {
+type SocialLinksProps = {
+  socials: SocialItem[]
+}
+
+function SocialLinks({ socials }: SocialLinksProps) {
   return (
     <ul className="social-links">
       {socials.map((social) => (

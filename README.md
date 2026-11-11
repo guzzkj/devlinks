@@ -37,18 +37,18 @@ Abra o endereço mostrado no terminal (normalmente http://localhost:5173).
 Outros comandos:
 
 ```bash
-npm run build      # gera a versão de produção em dist/
-npm run lint       # verifica o código
+npm run build      # confere os tipos (tsc) e gera a versão de produção em dist/
+npm run lint       # verifica o código (ESLint)
 npm run test:e2e   # roda os testes Playwright (precisa do Google Chrome instalado)
 ```
 
 ## Como personalizar
 
-Edite [`src/data/links.js`](src/data/links.js): nome de usuário, títulos e URLs dos botões e das redes sociais.
+Edite [`src/data/links.ts`](src/data/links.ts): nome de usuário, títulos e URLs dos botões e das redes sociais.
 
 ## Tecnologias
 
-- React 19 + Vite (JavaScript)
+- React 19 + Vite + TypeScript
 - CSS comum, com variáveis CSS para os temas
 - Fonte Inter (Google Fonts)
 - Playwright (testes automatizados)
@@ -59,16 +59,17 @@ Edite [`src/data/links.js`](src/data/links.js): nome de usuário, títulos e URL
 ```
 src/
   components/   Profile, LinkButton, ThemeToggle, SocialLinks, Icons, Footer
-  data/         links.js (perfil, links e redes sociais)
+  data/         links.ts (perfil, links e redes sociais)
+  types.ts      tipos TypeScript (Theme, LinkItem, SocialItem)
   assets/       avatars/ e backgrounds/
-  App.jsx       estado do tema (useState + localStorage) e composição da página
+  App.tsx       estado do tema (useState + localStorage) e composição da página
 e2e/            testes Playwright
 evidencias/     capturas de tela e evidências de Context7 e Playwright
 ```
 
 ## Conceitos de React usados
 
-- **Props**: `LinkButton` recebe `title` e `url`; `Profile` recebe `avatar` e `username`;
+- **Props** (tipadas com TypeScript): `LinkButton` recebe `title` e `url`; `Profile` recebe `avatar` e `username`;
   `ThemeToggle` recebe `theme` e `onToggle`.
 - **`map()`**: os 4 botões e os 4 ícones são renderizados a partir de arrays, sem repetir JSX.
 - **`useState`**: guarda o tema atual. O valor inicial vem do `localStorage` (função inicializadora).

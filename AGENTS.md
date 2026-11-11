@@ -12,7 +12,7 @@ responsivo (mobile 360px e desktop 1440px) em Light e Dark Mode.
 Figma: https://www.figma.com/design/zxErkHjdi0J3yZmZdUMnQE/DevLinks-%E2%80%A2-OpenCode-MiniProject
 
 ## Tecnologias
-- React (JavaScript, **não** TypeScript) + Vite
+- React + **TypeScript** + Vite (arquivos `.tsx`/`.ts`; tipar Props e dados, sem usar `any`)
 - CSS comum (arquivos `.css` por componente + variáveis CSS). Sem Tailwind.
 - Fonte Inter (pesos 400 e 500)
 - Nenhuma biblioteca extra sem necessidade e sem avisar antes
@@ -21,9 +21,10 @@ Figma: https://www.figma.com/design/zxErkHjdi0J3yZmZdUMnQE/DevLinks-%E2%80%A2-Op
 ```
 src/
   components/   Profile, LinkButton, ThemeToggle, SocialLinks, Footer
-  data/         arrays com links e redes sociais
+  data/         arrays com links e redes sociais (links.ts)
+  types.ts      tipos compartilhados
   assets/       avatars/ e backgrounds/ (já existem)
-  App.jsx
+  App.tsx
 ```
 
 ## Design (referência do Figma)
