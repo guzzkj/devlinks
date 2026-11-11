@@ -15,7 +15,7 @@ test('carrega sem erros no console', async ({ page }) => {
   page.on('console', (msg) => msg.type() === 'error' && errors.push(msg.text()))
   page.on('pageerror', (err) => errors.push(err.message))
   await page.goto('/')
-  await expect(page.getByText('@seu.perfil')).toBeVisible()
+  await expect(page.getByText('@guzzkj')).toBeVisible()
   expect(errors).toEqual([])
 })
 
@@ -63,10 +63,10 @@ test('4 botões e 4 redes sociais com os destinos corretos', async ({ page }) =>
     await expect(buttons.nth(i)).toHaveAttribute('rel', /noopener/)
   }
   const socials = {
-    GitHub: 'https://github.com',
-    Instagram: 'https://instagram.com',
+    GitHub: 'https://github.com/guzzkj',
+    Instagram: 'https://www.instagram.com/gustavo.hbarros',
     YouTube: 'https://youtube.com',
-    LinkedIn: 'https://linkedin.com',
+    LinkedIn: 'https://www.linkedin.com/in/gustavohbarros',
   }
   for (const [name, url] of Object.entries(socials)) {
     await expect(page.getByRole('link', { name })).toHaveAttribute('href', url)

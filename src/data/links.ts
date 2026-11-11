@@ -2,7 +2,7 @@ import type { LinkItem, SocialItem } from '../types'
 
 // Dados do perfil. Troque as URLs pelos seus links reais.
 export const profile = {
-  username: '@seu.perfil',
+  username: '@guzzkj',
 }
 
 export const links: LinkItem[] = [
@@ -13,8 +13,8 @@ export const links: LinkItem[] = [
 ]
 
 export const socials: SocialItem[] = [
-  { name: 'github', label: 'GitHub', url: 'https://github.com' },
-  { name: 'instagram', label: 'Instagram', url: 'https://instagram.com' },
+  { name: 'github', label: 'GitHub', url: 'https://github.com/guzzkj' },
+  { name: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/gustavo.hbarros' },
   { name: 'youtube', label: 'YouTube', url: 'https://youtube.com' },
-  { name: 'linkedin', label: 'LinkedIn', url: 'https://linkedin.com' },
+  { name: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/gustavohbarros' },
 ]
