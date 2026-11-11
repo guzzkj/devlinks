@@ -1,16 +1,84 @@
-# React + Vite
+# DevLinks
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Página de links pessoais (estilo "link na bio") feita em **React** a partir do design do
+[Figma](https://www.figma.com/design/zxErkHjdi0J3yZmZdUMnQE/DevLinks-%E2%80%A2-OpenCode-MiniProject),
+com **modo claro e escuro**, layout responsivo (mobile 360px e desktop 1440px) e desenvolvimento
+guiado por IA com o arquivo [`AGENTS.md`](AGENTS.md).
 
-Currently, two official plugins are available:
+## Prévia
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Desktop (escuro) | Desktop (claro) |
+| --- | --- |
+| ![Desktop escuro](evidencias/playwright-desktop-dark.png) | ![Desktop claro](evidencias/playwright-desktop-light.png) |
 
-## React Compiler
+| Mobile (escuro) | Mobile (claro) |
+| --- | --- |
+| ![Mobile escuro](evidencias/playwright-mobile-dark.png) | ![Mobile claro](evidencias/playwright-mobile-light.png) |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## O que a página faz
 
-## Expanding the ESLint configuration
+- Mostra avatar, @usuário, 4 botões de links e 4 redes sociais (GitHub, Instagram, YouTube, LinkedIn).
+- Abre os links externos em nova aba.
+- Alterna entre modo claro e escuro (o avatar também muda de versão).
+- Salva o tema no `localStorage`: ao recarregar, a escolha continua.
+- Funciona por teclado (Tab/Enter) e tem textos alternativos e `aria-label`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Como instalar e executar
+
+Requisitos: Node.js 20.19+ (ou 22.12+) e npm.
+
+```bash
+npm install
+npm run dev
+```
+
+Abra o endereço mostrado no terminal (normalmente http://localhost:5173).
+
+Outros comandos:
+
+```bash
+npm run build      # gera a versão de produção em dist/
+npm run lint       # verifica o código
+npm run test:e2e   # roda os testes Playwright (precisa do Google Chrome instalado)
+```
+
+## Como personalizar
+
+Edite [`src/data/links.js`](src/data/links.js): nome de usuário, títulos e URLs dos botões e das redes sociais.
+
+## Tecnologias
+
+- React 19 + Vite (JavaScript)
+- CSS comum, com variáveis CSS para os temas
+- Fonte Inter (Google Fonts)
+- Playwright (testes automatizados)
+- Context7 e Playwright MCP (configurados em [`.mcp.json`](.mcp.json))
+
+## Estrutura
+
+```
+src/
+  components/   Profile, LinkButton, ThemeToggle, SocialLinks, Icons, Footer
+  data/         links.js (perfil, links e redes sociais)
+  assets/       avatars/ e backgrounds/
+  App.jsx       estado do tema (useState + localStorage) e composição da página
+e2e/            testes Playwright
+evidencias/     capturas de tela e evidências de Context7 e Playwright
+```
+
+## Conceitos de React usados
+
+- **Props**: `LinkButton` recebe `title` e `url`; `Profile` recebe `avatar` e `username`;
+  `ThemeToggle` recebe `theme` e `onToggle`.
+- **`map()`**: os 4 botões e os 4 ícones são renderizados a partir de arrays, sem repetir JSX.
+- **`useState`**: guarda o tema atual. O valor inicial vem do `localStorage` (função inicializadora).
+- **`useEffect`**: aplica o tema no `<html>` e salva a escolha sempre que ela muda.
+- **Eventos**: `onClick` no botão de tema.
+
+## Uso de IA e evidências
+
+- Agente configurado por [`AGENTS.md`](AGENTS.md) (papel, regras, fluxo, ferramentas e cuidados).
+- **Context7**: consulta à documentação oficial do React sobre o valor inicial do `useState`:
+  [`evidencias/context7.md`](evidencias/context7.md).
+- **Playwright**: 15 testes (tema, persistência, links, teclado, responsivo, console) e capturas:
+  [`evidencias/playwright-resultado.txt`](evidencias/playwright-resultado.txt) e imagens em [`evidencias/`](evidencias/).
