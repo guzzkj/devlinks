@@ -11,6 +11,12 @@
       rel="stylesheet"
     />
     <title>DevLinks</title>
+    <script>
+      // Aplica o tema salvo antes de desenhar a página (evita "piscar")
+      if (localStorage.getItem('devlinks-theme') === 'light') {
+        document.documentElement.dataset.theme = 'light'
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
