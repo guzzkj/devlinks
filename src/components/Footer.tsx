@@ -3,7 +3,7 @@ import './Footer.css'
 function Footer() {
   return (
     <footer className="footer">
-      <p>Feito com ♥ pela/por</p>
+      <p>Feito com ♥ por Gustavo</p>
     </footer>
   )
 }

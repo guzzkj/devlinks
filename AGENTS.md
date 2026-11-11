@@ -29,7 +29,7 @@ src/
 
 ## Design (referência do Figma)
 - Coluna única centralizada. Ordem: avatar → @usuário → toggle de tema →
-  4 botões → 4 ícones sociais → rodapé "Feito com ♥ pela/por".
+  4 botões → 4 ícones sociais → rodapé "Feito com ♥ por Gustavo".
 - Avatar: 112px, redondo, borda de 2px em degradê roxo → ciano, a 80px do topo.
   `avatar-dark.jpg` no tema escuro e `avatar-light.jpg` (com óculos) no claro.
 - Toggle: 64×24px, bolinha de 32px. Claro: bolinha à direita com sol.
