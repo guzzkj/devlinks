@@ -4,7 +4,7 @@ Consulta real à API do Context7 em 2026-11-10.
 Biblioteca: /reactjs/react.dev (documentação oficial do React)
 Pergunta: useState com valor inicial vindo do localStorage (lazy initial state)
 
-```
+````
 ### Passing an initializer function to useState
 
 Source: https://github.com/reactjs/react.dev/blob/main/src/content/reference/react/useState.md
@@ -94,4 +94,4 @@ function SavedDraft() {
   );
 }
 ```
-```
+````
