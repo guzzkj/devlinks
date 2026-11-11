@@ -1,34 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Profile from './components/Profile'
+import ThemeToggle from './components/ThemeToggle'
+import LinkButton from './components/LinkButton'
+import SocialLinks from './components/SocialLinks'
+import Footer from './components/Footer'
+import { profile, links, socials } from './data/links'
+import avatarDark from './assets/avatars/avatar-dark.jpg'
+import avatarLight from './assets/avatars/avatar-light.jpg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Por enquanto o tema é fixo (escuro). A tarefa 07 troca isso por useState.
+  const theme = 'dark'
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="page">
+      <main className="page__main">
+        <Profile avatar={theme === 'light' ? avatarLight : avatarDark} username={profile.username} />
+        <ThemeToggle theme={theme} onToggle={() => {}} />
+
+        <ul className="links">
+          {links.map((link) => (
+            <li key={link.title}>
+              <LinkButton title={link.title} url={link.url} />
+            </li>
+          ))}
+        </ul>
+
+        <SocialLinks socials={socials} />
+      </main>
+      <Footer />
+    </div>
   )
 }
 

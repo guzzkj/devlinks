@@ -1,0 +1,24 @@
+.link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  border: 1px solid var(--button-border);
+  border-radius: 8px;
+  background: var(--button-bg);
+  text-align: center;
+  backdrop-filter: blur(8px);
+  transition: transform 0.15s ease;
+}
+
+.link-button:hover {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-button {
+    transition: none;
+  }
+}

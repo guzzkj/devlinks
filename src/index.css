@@ -1,68 +1,68 @@
+/* Variáveis de cor: tema escuro é o padrão; o claro troca os valores */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bg-color: #131314;
+  --bg-image: url("./assets/backgrounds/bg-dark-desktop.webp");
+  --text: #ffffff;
+  --button-bg: rgba(255, 255, 255, 0.05);
+  --button-border: rgba(255, 255, 255, 0.5);
+  --knob-bg: #ffffff;
+  --knob-color: #131314;
+  --track-bg: rgba(255, 255, 255, 0.1);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+[data-theme="light"] {
+  --bg-color: #ffffff;
+  --bg-image: url("./assets/backgrounds/bg-light-desktop.webp");
+  --text: #000000;
+  --button-bg: rgba(0, 0, 0, 0.05);
+  --button-border: rgba(0, 0, 0, 0.5);
+  --knob-bg: #ffffff;
+  --knob-color: #000000;
+  --track-bg: rgba(0, 0, 0, 0.08);
 }
-a:hover {
-  color: #535bf2;
+
+/* No celular, usamos os fundos verticais */
+@media (max-width: 767px) {
+  :root {
+    --bg-image: url("./assets/backgrounds/bg-dark-mobile.png");
+  }
+  [data-theme="light"] {
+    --bg-image: url("./assets/backgrounds/bg-light-mobile.png");
+  }
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  color: var(--text);
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
 }

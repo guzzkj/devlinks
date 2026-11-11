@@ -1,0 +1,25 @@
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 56px;
+}
+
+.social-links__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.15s ease;
+}
+
+.social-links__link:hover {
+  transform: scale(1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-links__link {
+    transition: none;
+  }
+}
